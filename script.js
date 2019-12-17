@@ -27,12 +27,14 @@
 //     var correctPasswordLength = prompt("Pick a number between 8-128."); 
 // }
 
-do { var passwordLength = prompt("How long do you want your password to be?  Pick a number between 8-128 for password length.");
+do { let passwordLength = prompt("How long do you want your password to be?  Pick a number between 8-128 for password length.");
 }
 while (passwordLength < 8 || passwordLength > 128)
 
 console.log(passwordLength);
 
-
-
+let numbers = ['0','1','2','3','4','5','6','7','8','9'];
+let lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+let upperCase = lowerCase.map(function(x){ return x.toUpperCase() })
+let specialCharacters = []
  
