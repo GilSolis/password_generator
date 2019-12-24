@@ -1,14 +1,19 @@
-// prompt user for 8-128 characters
-//     verify # of characters is between 8-128 else prompt again.
+//Setting the variables
+var numbers = ['0','1','2','3','4','5','6','7','8','9'];
+var numbersChosen = document.getElementById("numbers");
+var lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+var lowerCaseChosen = document.getElementById("lowerCase");
+var upperCase = lowerCase.map(function(lower){ return lower.toUpperCase() });
+var upperCaseChosen = document.getElementById("upperCase");
+var specialCharacters = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')'];
+var specialCharactersChosen = document.getElementById("specialChars");
+// var passwordSize = document.getElementById("slider").value;
 
-// prompt user if they want special characters
+// console.log(upperCase);
 
-// prompt user if they want numeric characters
+console.log(document.getElementById("slider").value);
 
-// prompt user if they want lower case characters
 
-// prompt user they want upper case characters
-//     verify at least one set of characters was chosen else prompt again
 
 // create array of characters based on users choice
 
@@ -33,10 +38,7 @@
 
 // console.log(passwordLength);
 
-// let numbers = ['0','1','2','3','4','5','6','7','8','9'];
-// let lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-// let upperCase = lowerCase.map(function(x){ return x.toUpperCase() })
-// let specialCharacters = []
+
  
 
 document.getElementById("length").innerHTML = "Length: 60";
@@ -48,7 +50,7 @@ document.getElementById("slider").oninput = function(){
         document.getElementById("length").innerHTML = "Length: " + document.getElementById("slider").value;
     }
     else {
-        document.getElementById("length").innerHTML = "Length: 1";
+        document.getElementById("length").innerHTML = "Length: 8";
 
     }
 
