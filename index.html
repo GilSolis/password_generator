@@ -17,19 +17,34 @@
     <div class="container">
         <div class="content">
             <h3>Password Generator</h3>
-            <input type="text">
+            <textarea class="text" type="text"rows="5" readonly></textarea>
+
             <br>
-            <input type="range" name="length" min="8" max="128">
-            <div id="length">Length:</div>
-            <input type="checkbox">Lower Case</input>
-            <input type="checkbox">Upper Case</input>
+
+            <input class="range" type="range" id="slider" min="8" max="128">
+
+            <div id="length"></div>
             <br>
-            <input type="checkbox">Numbers</input>
-            <input type="checkbox">Special Characters</input>
+            <div class="nav">
+                <div>
+                    <input type="checkbox"> Inc. Lower Case</input>
+                </div>
+                <div>
+                    <input type="checkbox"> Inc. Upper Case</input>
+                </div>
+                <div>
+                    <input type="checkbox"> Inc. Numbers</input>
+                </div>
+                <div>
+                    <input type="checkbox"> Inc. Special Characters</input>
+                </div>
+            </div>
+
             <br>
-            <button onclick="">Generate</button>
-            <button onclick="">Copy Password</button>
-            
+            <div class="button">
+                <button onclick="">Generate</button>
+                <button onclick="">Copy Password</button>
+            </div>
             
         </div>
 
