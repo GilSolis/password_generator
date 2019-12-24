@@ -11,7 +11,10 @@ var specialCharactersChosen = document.getElementById("specialChars");
 
 // console.log(upperCase);
 
-console.log(document.getElementById("slider").value);
+console.log(specialCharactersChosen.checked);
+
+
+if(numbersChosen.checked == false && lowerCaseChosen.checked == false && upperCaseChosen.checked == false && specialCharactersChosen.checked == false ){document.getElementById("password").innerHTML = "Must choose at least one option";};
 
 
 
