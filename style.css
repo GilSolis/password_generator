@@ -47,6 +47,9 @@ h3{
     margin: auto;
     width: 100%;
     resize: none;
+    text-align: center;
+    color: blue;
+       
 }
 
 .range {
