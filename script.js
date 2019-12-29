@@ -11,16 +11,14 @@ var specialCharactersChosen = document.getElementById("specialChars");
 // var password = [];
 // console.log(upperCase);
 
-console.log(specialCharactersChosen.checked);
 
-// generate password
-document.getElementById("generate").addEventListener("click", function() {
+// generate password on click
+document.getElementById("generate").addEventListener("click", function(){
 
-    if(numbersChosen.checked == false && lowerCaseChosen.checked == false && upperCaseChosen.checked == false && specialCharactersChosen.checked == false ){document.getElementById("display").innerHTML = "Must choose at least one option"};
+    if(numbersChosen.checked == false && lowerCaseChosen.checked == false && upperCaseChosen.checked == false && specialCharactersChosen.checked == false){document.getElementById("display").innerHTML = "Must choose at least one option"};
 
 // setting choice array
     var choices = [];
-
 
 // adding choice to array
     if(numbersChosen.checked === true){
@@ -35,10 +33,19 @@ document.getElementById("generate").addEventListener("click", function() {
     if(specialCharactersChosen.checked === true){
     choices = choices.concat(specialCharacters);    
     }
-console.log(choices.length)
-// setting password array
 
-var password = [];
+    
+// // setting password array
+//     var password = []
+// // setting legth of password variable
+//     var lengthOfPassword = document.getElementById('slider').value
+
+
+//     for (var i = 0; i < lengthOfPassword; i++) {
+//     var randomNumber = Math.floor(Math.random() * choices.length);
+//     password = password.concat(choices[randomNumber])
+//     }   
+//     document.getElementById("display").value = password.join('');
 
 
 // console.log(choices);
@@ -79,8 +86,19 @@ document.getElementById("slider").oninput = function(){
     }
     else {
         document.getElementById("length").innerHTML = "Length: 8";
-
     }
-
-
 }
+
+// Copy to clipboard
+
+document.getElementById("copy").addEventListener("click", function () {
+    if(document.getElementById('display').value === "" || document.getElementById('display').value === "Must choose at least one option"){
+        document.getElementById("display").innerHTML = "Please generate a password";
+    }
+    else {
+    var copyPassword = document.getElementById("display");
+    copyPassword.select();
+    copyPassword.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    }
+});
