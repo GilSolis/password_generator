@@ -2,7 +2,7 @@
 
 A password generator that works off user input to determine the length of password and which characters to include.
 
-## Usage
+## How to use?
 Adjust the slider to the desired length of password choosing between **8** and **128** characters. 
 Selected which characters to include.  Choices are: 
 * Lower case letters 
