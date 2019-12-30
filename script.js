@@ -11,47 +11,60 @@ var specialCharactersChosen = document.getElementById("specialChars");
 // generate password
 document.getElementById("generate").addEventListener("click", function(){
 
-   if(numbersChosen.checked == false && lowerCaseChosen.checked == false && upperCaseChosen.checked == false && specialCharactersChosen.checked == false){document.getElementById("display").innerHTML = "Must choose at least one option"};
+    //function to create password
+    function  createPassword(){
+
+        var password = [];
+    // setting legth of password variable
+        var lengthOfPassword = document.getElementById('slider').value;
+    
+        for (var i = 0; i < lengthOfPassword; i++) {
+        var randomNumber = Math.floor(Math.random() * choices.length);
+        password = password.concat(choices[randomNumber])
+        } 
+        
+        //displays the password    
+        document.getElementById("display").innerHTML = password.join('');
+        }
+
+  
+   
+  // {document.getElementById("display").innerHTML = "Must choose at least one option"};
 
 // setting choice array
     var choices = [];
 
 // adding choice to array
-    if(numbersChosen.checked === true){
-    choices = choices.concat(numbers);    
+    if(numbersChosen.checked === true){        
+    choices = choices.concat(numbers);
+    createPassword();    
     }
     if(lowerCaseChosen.checked === true){
     choices = choices.concat(lowerCase);
+    createPassword();
     }
     if(upperCaseChosen.checked === true){
-    choices = choices.concat(upperCase);    
+    choices = choices.concat(upperCase); 
+    createPassword();
     }
-    if(specialCharactersChosen.checked === true){
-    choices = choices.concat(specialCharacters);    
+    if(specialCharactersChosen.checked === true){        
+    choices = choices.concat(specialCharacters);
+    createPassword();    
     }
-   
-// setting password array
-    var password = [];
-// setting legth of password variable
-    var lengthOfPassword = document.getElementById('slider').value;
-
-    for (var i = 0; i < lengthOfPassword; i++) {
-    var randomNumber = Math.floor(Math.random() * choices.length);
-    password = password.concat(choices[randomNumber])
-    } 
     
-    //displays the password
-    document.getElementById("display").value = password.join('')
- 
+    //checks to see that at least one option is chosen
+    if(numbersChosen.checked == false && lowerCaseChosen.checked == false && upperCaseChosen.checked == false  && specialCharactersChosen.checked == false){
+        console.log("Empty");
+        document.getElementById("display").innerHTML = "Must choose at least one option";
+   }
 });
 
 //displays initial value of 60
 document.getElementById("length").innerHTML = "Length: 60"
 
 //displays slider value as it is moved
-
 document.getElementById("slider").oninput = function(){
-    if (document.getElementById("slider").value > 0){
+    if (document.getElementById("slider").value > 8){
         document.getElementById("length").innerHTML = "Length: " + document.getElementById("slider").value;
     }
     else {
@@ -60,7 +73,6 @@ document.getElementById("slider").oninput = function(){
 }
 
 // Copy to clipboard
-
 document.getElementById("copy").addEventListener("click", function () {
     //checks to see if password has been generated, alerts user to generate password if not
     if(document.getElementById('display').value === "" || document.getElementById('display').value === "Must choose at least one option"){
